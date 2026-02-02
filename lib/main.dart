@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/router/app_router.dart';
+import 'core/theme/app_theme.dart';
 
 void main() {
   runApp(const ProviderScope(child: SakuinApp()));
@@ -12,24 +13,10 @@ class SakuinApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color scaffoldBackground = Color(0xFF0B0C10);
-    const Color primaryColor = Color(0xFF66FCF1);
-
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Sakuin',
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: scaffoldBackground,
-        colorScheme: const ColorScheme.dark(
-          primary: primaryColor,
-          surface: scaffoldBackground,
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: scaffoldBackground,
-          foregroundColor: primaryColor,
-        ),
-      ),
+      theme: AppTheme.lightTheme,
       routerConfig: appRouter,
     );
   }
